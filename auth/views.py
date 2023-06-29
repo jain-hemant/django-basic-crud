@@ -26,18 +26,21 @@ def signup(request):
     return render(request,"auth/signup.html")
 
 def signin(request):
-    # if request.method == "POST":
-    #     user_name = request.POST["user_name"]
-    #     pass1 = request.POST["password"]
+    if request.method == "POST":
+        user_name = request.POST["user_name"]
+        pass1 = request.POST["password"]
 
-    #     user =  authenticate(username = user_name, password = pass1)
-    #     if user is not None:
-    #         login(request,user)
-    #         first_name = user.first_name
-    #         return redirect(request,"auth/index.html",{"first_name" : first_name})
-    #     else:
-    #         messages.error(request, "bad credintial")
-    #         return redirect("home")
+        user =  authenticate(username = user_name, password = pass1)
+        if user is not None:
+            login(request,user)
+            first_name = user.first_name
+            # return redirect(request,"auth/index.html",{"firstname" : first_name})
+           
+            return redirect("home")
+
+        else:
+            messages.error(request, "bad credintial")
+            return redirect("home")
 
     return render(request,"auth/signin.html")
 
