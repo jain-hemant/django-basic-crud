@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication</title>
+    <title>Sign up</title>
 </head>
 <body>
-    <h3>Wealcome To Student Management</h3>
-    <button type="submit">signup</button>
-    <button type="submit">signin</button>
-    <button type="submit">signout</button>
+    <h3> Log in</h3>
+    <form action="/signin" method ="post">
+        {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" id = "user_name" name ="user_name" placeholder="Enter Username (only letters and Numbers)" required>       <label for="">Password</label>
+        <br> 
+        <label for="">Password</label>
+        <input type="password" id = "password" name ="password" placeholder="Create a Password" required>
+        <br>        
+        <button type="submit">Login</button>
+    </form>
 </body>
 </html>
